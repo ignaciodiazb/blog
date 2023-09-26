@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import "./globals.css";
+import "./layout.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,19 +15,38 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav>
-          <h1>
-            <Link href={"/"}>Ignacio Díaz</Link>
-          </h1>
-          <ul>
-            <li>
-              <Link href={"/blog"}>Blog</Link>
-              <Link href={"/projects"}>Projects</Link>
-              <Link href={"/about"}>About</Link>
-            </li>
-          </ul>
-        </nav>
-        {children}
+        <header className={"head"}>
+          <div className={"head__content"}>
+            <h1 className={"logo"}>
+              <Link className={"logo__link"} href={"/"}>
+                Ignacio Díaz
+              </Link>
+            </h1>
+            <nav className={"nav"}>
+              <ul className={"nav__list"}>
+                <li className={"nav__item"}>
+                  <Link className={"nav__link"} href={"/blog"}>
+                    Blog
+                  </Link>
+                </li>
+                <li className={"nav__item"}>
+                  <Link className={"nav__link"} href={"/about"}>
+                    About
+                  </Link>
+                </li>
+                {/* <li className={"nav__item"}>
+                  <Link className={"nav__link"} href={"/projects"}>Projects</Link>
+                </li> */}
+                <li className={"nav__item"}>
+                  <Link className={"nav__link"} href={"/contact"}>
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <main className={"main"}>{children}</main>
       </body>
     </html>
   );
