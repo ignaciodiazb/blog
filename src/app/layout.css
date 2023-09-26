@@ -1,3 +1,9 @@
+.footer {
+  text-align: center;
+}
+.footer__link {
+  padding: 0 5px;
+}
 .head__content {
   align-items: center;
   display: flex;

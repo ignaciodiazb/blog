@@ -47,6 +47,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
         <main className={"main"}>{children}</main>
+        <footer className={"footer"}>
+          <Link className={"footer__link"} href={"https://github.com/ignaciodiazb"} target={"_blank"}>
+            GitHub
+          </Link>
+          <Link className={"footer__link"} href={"https://www.linkedin.com/in/ignaciodiazb/"} target={"_blank"}>
+            LinkedIn
+          </Link>
+        </footer>
       </body>
     </html>
   );
