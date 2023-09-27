@@ -1,25 +1,12 @@
 .latest-posts {
   padding: 20px 0;
 }
-.latest-posts__item {
-}
 .latest-posts__item:not(:last-child) {
   margin: 0 0 20px 0;
+}
+.latest-posts__link {
 }
 .latest-posts__list {
   list-style: none;
   margin: 20px 0;
-}
-.latest-posts__title {
-}
-.post {
-}
-.post__details {
-  color: rgba(0, 0, 0, 0.7);
-  font-size: smaller;
-  margin: 2px 0;
-}
-.post__intro {
-}
-.post__title {
 }
