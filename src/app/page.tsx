@@ -1,11 +1,15 @@
-import Image from "next/image";
+import { Fragment } from "react";
 
-import styles from "./page.module.css";
+import Intro from "@/components/intro";
+import LatestPosts from "@/components/latest-posts";
 
-export default function Home() {
+import "./page.css";
+
+export default function HomePage() {
   return (
-    <main className={styles.main}>
-      <p>dientesaurio</p>
-    </main>
+    <Fragment>
+      <Intro />
+      <LatestPosts />
+    </Fragment>
   );
 }
