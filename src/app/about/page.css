@@ -1,0 +1,9 @@
+.about__description {
+}
+.about__description:not(:last-child) {
+  margin: 15px 0;
+}
+.about__link {
+}
+.about__title {
+}
