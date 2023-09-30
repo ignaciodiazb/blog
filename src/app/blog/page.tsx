@@ -2,14 +2,12 @@ import { Fragment } from "react";
 
 import Post from "@/components/post";
 
-import "./page.css";
-
 export default function BlogPage() {
   return (
     <Fragment>
-      <h2 className={"posts__title"}>Blog</h2>
-      <ul className={"posts__list"}>
-        <li className={"posts__item"}>
+      <h2 className={"text-3xl font-medium"}>Blog</h2>
+      <ul className={"my-3 divide-y divide-slate-200"} role={"list"}>
+        <li className={"py-4 first:pt-0 last:pb-0"}>
           <Post
             date={"June 30, 2022"}
             intro={
