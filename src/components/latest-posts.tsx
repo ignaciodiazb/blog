@@ -2,14 +2,12 @@ import Link from "next/link";
 
 import Post from "@/components/post";
 
-import "./latest-posts.css";
-
 export default function LatestPosts() {
   return (
-    <section className={"latest-posts"}>
-      <h2 className={"latest-posts__title"}>Latest posts</h2>
-      <ul className={"latest-posts__list"}>
-        <li className={"latest-posts__item"}>
+    <section className={"my-8"}>
+      <h2 className={"text-xl font-medium"}>Latest posts</h2>
+      <ul className={"my-3 divide-y divide-slate-200"} role={"list"}>
+        <li className={"py-4 first:pt-0 last:pb-0"}>
           <Post
             date={"June 30, 2022"}
             intro={
@@ -21,7 +19,7 @@ export default function LatestPosts() {
             key={"react-application-basic-setup"}
           />
         </li>
-        <li className={"latest-posts__item"}>
+        <li className={"py-4 first:pt-0 last:pb-0"}>
           <Post
             date={"April 28, 2022"}
             intro={
@@ -33,7 +31,7 @@ export default function LatestPosts() {
             key={"bulma-javascript-navbar"}
           />
         </li>
-        <li className={"latest-posts__item"}>
+        <li className={"py-4 first:pt-0 last:pb-0"}>
           <Post
             date={"January 31, 2022"}
             intro={
@@ -46,7 +44,7 @@ export default function LatestPosts() {
           />
         </li>
       </ul>
-      <Link className={"latest-posts__link"} href={"/blog"}>
+      <Link className={"underline"} href={"/blog"}>
         View all posts
       </Link>
     </section>

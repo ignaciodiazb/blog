@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
-import "./layout.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,43 +15,35 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className={"head"}>
-          <div className={"head__content"}>
-            <h1 className={"logo"}>
-              <Link className={"logo__link"} href={"/"}>
-                Ignacio Díaz
-              </Link>
+        <header className={"py-5"}>
+          <div className={"max-w-3xl mx-auto flex flex-col md:flex-row md:justify-between items-center"}>
+            <h1 className={"text-3xl font-semibold"}>
+              <Link href={"/"}>Ignacio Díaz</Link>
             </h1>
-            <nav className={"nav"}>
-              <ul className={"nav__list"}>
-                <li className={"nav__item"}>
-                  <Link className={"nav__link"} href={"/blog"}>
-                    Blog
-                  </Link>
+            <nav className={"mt-3 md:mt-0"}>
+              <ul className={"flex justify-center"}>
+                <li className={"px-2"}>
+                  <Link href={"/blog"}>Blog</Link>
                 </li>
-                <li className={"nav__item"}>
-                  <Link className={"nav__link"} href={"/about"}>
-                    About
-                  </Link>
+                <li className={"px-2"}>
+                  <Link href={"/about"}>About</Link>
                 </li>
-                {/* <li className={"nav__item"}>
-                  <Link className={"nav__link"} href={"/projects"}>Projects</Link>
+                {/* <li className={"px-2"}>
+                  <Link href={"/projects"}>Projects</Link>
                 </li> */}
-                <li className={"nav__item"}>
-                  <Link className={"nav__link"} href={"/contact"}>
-                    Contact
-                  </Link>
+                <li className={"px-2"}>
+                  <Link href={"/contact"}>Contact</Link>
                 </li>
               </ul>
             </nav>
           </div>
         </header>
-        <main className={"main"}>{children}</main>
-        <footer className={"footer"}>
-          <Link className={"footer__link"} href={"https://github.com/ignaciodiazb"} target={"_blank"}>
+        <main className={"max-w-3xl mx-auto px-3 md:px-0 py-5"}>{children}</main>
+        <footer className={"flex justify-center items-center py-3"}>
+          <Link className={"px-2 underline"} href={"https://github.com/ignaciodiazb"} target={"_blank"}>
             GitHub
           </Link>
-          <Link className={"footer__link"} href={"https://www.linkedin.com/in/ignaciodiazb/"} target={"_blank"}>
+          <Link className={"px-2 underline"} href={"https://www.linkedin.com/in/ignaciodiazb/"} target={"_blank"}>
             LinkedIn
           </Link>
         </footer>
