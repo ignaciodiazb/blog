@@ -1,18 +1,18 @@
 import Link from "next/link";
 
-export default function Intro() {
+import { Locale } from "../../i18n-config";
+import { getDictionary } from "@/lib/dictionary";
+
+export default async function Intro({ lang }: { lang: Locale }) {
+  const dictionary = await getDictionary(lang);
+
   return (
     <section className={"bg-slate-100 p-4 border-l-2 border-l-slate-400"}>
-      <h2 className={"text-xl font-semibold mb-3"}>Hi! I'm Ignacio. I'm a software developer and entrepreneur.</h2>
-      <p>
-        I like building cool apps, contributing to open source and writing about software development and
-        entrepreneurship.
-      </p>
-      <p className={"mb-3"}>
-        I'm especially interested in <span className={"font-semibold"}>startups</span>.
-      </p>
-      <Link className={"underline"} href={"/about"}>
-        More about me
+      <h2 className={"text-xl font-semibold mb-3"}>{dictionary.page.home.intro.title}</h2>
+      <p>{dictionary.page.home.intro.description.p1}</p>
+      <p className={"mb-3"}>{dictionary.page.home.intro.description.p2}</p>
+      <Link className={"underline"} href={`/${lang}/about`}>
+        {dictionary.page.home.intro.aboutLink}
       </Link>
     </section>
   );

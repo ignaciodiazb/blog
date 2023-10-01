@@ -1,11 +1,15 @@
 import Link from "next/link";
 
 import Post from "@/components/post";
+import { Locale } from "../../i18n-config";
+import { getDictionary } from "@/lib/dictionary";
 
-export default function LatestPosts() {
+export default async function LatestPosts({ lang }: { lang: Locale }) {
+  const dictionary = await getDictionary(lang);
+
   return (
     <section className={"my-8"}>
-      <h2 className={"text-xl font-medium"}>Latest posts</h2>
+      <h2 className={"text-xl font-medium"}>{dictionary.page.home.latestPosts.title}</h2>
       <ul className={"my-3 divide-y divide-slate-200"} role={"list"}>
         <li className={"py-4 first:pt-0 last:pb-0"}>
           <Post
@@ -44,8 +48,8 @@ export default function LatestPosts() {
           />
         </li>
       </ul>
-      <Link className={"underline"} href={"/blog"}>
-        View all posts
+      <Link className={"underline"} href={`/${lang}/blog`}>
+        {dictionary.page.home.latestPosts.blogLink}
       </Link>
     </section>
   );
