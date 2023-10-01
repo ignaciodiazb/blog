@@ -1,0 +1,33 @@
+{
+  "navigation": {
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "projects": "Projects"
+  },
+  "page": {
+    "about": {
+      "description": {
+        "p1": "I'm a software developer and entrepreneur with professional background in IT consulting and the real estate sector.",
+        "p2": "In 2021 I built an MVP for my project eparkk; an application that helped drivers find and book parking. However I decided to shut down eparkk after a few months due to poor results.",
+        "p3": "In 2022 I joined Move Lab full time as Full Stack Developer. I worked mainly in projects of the real estate industry.",
+        "p4": "Currently I'm working as freelance developer. My areas of interest are web/mobile development, and machine learning."
+      },
+      "title": "About"
+    },
+    "home": {
+      "intro": {
+        "description": {
+          "p1": "I like building cool apps, contributing to open source and writing about software development and entrepreneurship.",
+          "p2": "I'm especially interested in startups."
+        },
+        "aboutLink": "More about me",
+        "title": "Hi! I'm Ignacio. I'm a software developer and entrepreneur."
+      },
+      "latestPosts": {
+        "blogLink": "View all posts",
+        "title": "Latest posts"
+      }
+    }
+  }
+}
