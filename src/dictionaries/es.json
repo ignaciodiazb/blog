@@ -1,0 +1,33 @@
+{
+  "navigation": {
+    "about": "Sobre mi",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "projects": "Proyectos"
+  },
+  "page": {
+    "about": {
+      "description": {
+        "p1": "Soy desarrollador de software y emprendedor con experiencia profesional en consultoría TI y el sector inmobiliario.",
+        "p2": "En 2021 construí un MVP para mi proyecto eparkk; una aplicación que ayudaba a los conductores a encontrar y reservar espacionamiento. Sin embargo, decidí suspender sus operaciones después de unos meses debido a escasos resultados.",
+        "p3": "En 2022 me uní a Move Lab como Desarrollador Full Stack, en donde trabajé principalmente en proyectos del sector inmobiliario.",
+        "p4": "Actualmente trabajo como desarrollador freelance. Mis áreas de interés son el desarrollo web/móvil y machine learning."
+      },
+      "title": "Sobre mi"
+    },
+    "home": {
+      "intro": {
+        "description": {
+          "p1": "Me gusta crear aplicaciones interesantes, contribuir al código abierto y escribir sobre desarrollo de software y emprendimiento.",
+          "p2": "Estoy interesado especialmente en startups."
+        },
+        "aboutLink": "Más sobre mi",
+        "title": "Hola, mi nombre es Ignacio. Soy desarrollador de software y emprendedor."
+      },
+      "latestPosts": {
+        "blogLink": "Ver todos los artículos",
+        "title": "Últimos artículos"
+      }
+    }
+  }
+}

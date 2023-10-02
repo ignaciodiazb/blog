@@ -1,6 +1,10 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import type { Metadata } from "next";
+
+import LocaleSwitcher from "@/components/locale-switcher";
+import { Locale, i18n } from "../../../i18n-config";
+import { getDictionary } from "@/lib/dictionary";
 
 import "./globals.css";
 
@@ -11,28 +15,43 @@ export const metadata: Metadata = {
   description: "Website about software development and startups by Ignacio Díaz",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
+
+export default async function RootLayout({
+  children,
+  params: { lang },
+}: {
+  children: React.ReactNode;
+  params: { lang: Locale };
+}) {
+  const dictionary = await getDictionary(lang);
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body className={inter.className}>
         <header className={"py-5"}>
           <div className={"max-w-3xl mx-auto flex flex-col md:flex-row md:justify-between items-center"}>
             <h1 className={"text-3xl font-semibold"}>
-              <Link href={"/"}>Ignacio Díaz</Link>
+              <Link href={`/${lang}`}>Ignacio Díaz</Link>
             </h1>
             <nav className={"mt-3 md:mt-0"}>
               <ul className={"flex justify-center"}>
                 <li className={"px-2"}>
-                  <Link href={"/blog"}>Blog</Link>
+                  <Link href={`/${lang}/blog`}>{dictionary.navigation.blog}</Link>
                 </li>
                 <li className={"px-2"}>
-                  <Link href={"/about"}>About</Link>
+                  <Link href={`/${lang}/about`}>{dictionary.navigation.about}</Link>
                 </li>
                 {/* <li className={"px-2"}>
-                  <Link href={"/projects"}>Projects</Link>
+                  <Link href={`/${lang}/projects`}>{dictionary.navigation.projects}</Link>
+                </li> */}
+                {/* <li className={"px-2"}>
+                  <Link href={`/${lang}/contact`}>{dictionary.navigation.contact}</Link>
                 </li> */}
                 <li className={"px-2"}>
-                  <Link href={"/contact"}>Contact</Link>
+                  <LocaleSwitcher lang={lang} />
                 </li>
               </ul>
             </nav>
