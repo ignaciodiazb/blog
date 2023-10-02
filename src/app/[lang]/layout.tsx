@@ -1,7 +1,8 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import type { Metadata } from "next";
 
+import LocaleSwitcher from "@/components/locale-switcher";
 import { Locale, i18n } from "../../../i18n-config";
 import { getDictionary } from "@/lib/dictionary";
 
@@ -49,6 +50,9 @@ export default async function RootLayout({
                 {/* <li className={"px-2"}>
                   <Link href={`/${lang}/contact`}>{dictionary.navigation.contact}</Link>
                 </li> */}
+                <li className={"px-2"}>
+                  <LocaleSwitcher lang={lang} />
+                </li>
               </ul>
             </nav>
           </div>
