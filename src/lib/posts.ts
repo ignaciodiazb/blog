@@ -1,8 +1,19 @@
 import fs from "fs";
+import html from "remark-html";
 import matter from "gray-matter";
 import path from "path";
+import { remark } from "remark";
 
 import type { Locale } from "../../i18n-config";
+
+interface BlogPost {
+  contentHtml: string;
+  date: string;
+  intro: string;
+  readingTime: number;
+  slug: string;
+  title: string;
+}
 
 interface BlogPostMetadata {
   date: string;
@@ -13,6 +24,22 @@ interface BlogPostMetadata {
 }
 
 const postsDirectory = path.join(process.cwd(), "src", "posts");
+
+export async function getPostBySlug(slug: string, lang: Locale = "en"): Promise<BlogPost> {
+  const fullPath = path.join(postsDirectory, lang, `${slug}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+
+  const { content, data } = matter(fileContents);
+
+  const processedContent = await remark().use(html).process(content);
+  const contentHtml = processedContent.toString();
+
+  return {
+    contentHtml,
+    slug,
+    ...(data as { date: string; intro: string; readingTime: number; title: string }),
+  };
+}
 
 export function getPostsMetadata(locale: Locale = "en"): BlogPostMetadata[] {
   const postsDirectoryWithLocale = path.join(postsDirectory, locale);
