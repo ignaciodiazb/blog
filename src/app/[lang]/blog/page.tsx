@@ -1,48 +1,32 @@
 import { Fragment } from "react";
 
 import Post from "@/components/post";
+import { Locale, i18n } from "../../../../i18n-config";
+import { getPostsMetadata } from "@/lib/posts";
 
-export default function BlogPage() {
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
+
+export default function BlogPage({ params: { lang } }: { params: { lang: Locale } }) {
+  const posts = getPostsMetadata(lang);
+
   return (
     <Fragment>
       <h2 className={"text-3xl font-medium"}>Blog</h2>
       <ul className={"my-3 divide-y divide-slate-200"} role={"list"}>
-        <li className={"py-4 first:pt-0 last:pb-0"}>
-          <Post
-            date={"June 30, 2022"}
-            intro={
-              "create-react-app is a great tool but sometimes we want to know what is under the hood or add custom configuration. Either way, this is a good starting point."
-            }
-            readingTime={10}
-            slug={"react-application-basic-setup"}
-            title={"React application basic setup"}
-            key={"react-application-basic-setup"}
-          />
-        </li>
-        <li className={"posts__item"}>
-          <Post
-            date={"April 28, 2022"}
-            intro={
-              "Bulma is a great CSS framework that comes with components ready to use. However some components like the navbar require a small JavaScript implementation in order to work as expected."
-            }
-            readingTime={5}
-            slug={"bulma-javascript-navbar"}
-            title={"How to add JavaScript behavior to Bulma navbar in a React app"}
-            key={"bulma-javascript-navbar"}
-          />
-        </li>
-        <li className={"posts__item"}>
-          <Post
-            date={"January 31, 2022"}
-            intro={
-              "Hosting is one of those concepts that are very important to master in order to understand how functions and variables work, and to approach programming in a way that resembles how engines look at our code."
-            }
-            readingTime={10}
-            slug={"javascript-variable-hoisting"}
-            title={"Understanding variable hoisting in JavaScript"}
-            key={"javascript-variable-hoisting"}
-          />
-        </li>
+        {posts.map((post) => (
+          <li className={"py-4 first:pt-0 last:pb-0"} key={post.slug}>
+            <Post
+              date={post.date}
+              intro={post.intro}
+              lang={lang}
+              readingTime={post.readingTime}
+              slug={post.slug}
+              title={post.title}
+            />
+          </li>
+        ))}
       </ul>
     </Fragment>
   );
