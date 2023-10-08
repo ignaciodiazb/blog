@@ -29,11 +29,11 @@ export default async function BlogPostPage({ params: { lang, slug } }: Props) {
 
   return (
     <article className={"py-4"}>
-      <h1 className={"text-3xl my-3"}>{post.title}</h1>
+      <h1 className={"text-2xl font-bold lg:text-3xl my-3"}>{post.title}</h1>
       <p className={"text-sm mb-3 text-slate-600"}>
         <time dateTime={post.date}>{post.date}</time> &middot; {post.readingTime} min read
       </p>
-      <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+      <div className={"prose prose-stone lg:prose-lg my-3"} dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
       <Link className={"underline"} href={`/${lang}`}>
         &#8592; Back to home
       </Link>
