@@ -22,7 +22,7 @@ varExample();
 
 Cuando llamamos esta función, imprime `Apple` en la consola, como resultado de un escaneo que realiza el motor antes de ejecutar el código, en el cual busca todas las declaraciones de variables para asignar la memoria correspondiente, y así comenzar a trabajar en la siguiente fase. Así que, en el momento en el que el motor llega a la declaración en tiempo de ejecución, el valor de `Apple` es asignado a la variable, cuya declaración ha sido "movida" al principio de la función.
 
-![Declaración e inicialización de una variable en JavaScript](/public/images/blog/javascript-variable-hoisting/declaration_and_initialization.png "Declaración e inicialización de una variable en JavaScript")
+![Declaración e inicialización de una variable en JavaScript](/images/blog/javascript-variable-hoisting/declaration_and_initialization.png "Declaración e inicialización de una variable en JavaScript")
 
 Es importante destacar que en JavaScript solo **declaraciones de variables** son "movidas". Si intentamos acceder al valor de la variable `fruit` antes de su inicialización, nos dará como resultado `undefined`, que es el valor por defecto que reciben variables declaradas con `var` cuando son "movidas" en la fase de creación.
 

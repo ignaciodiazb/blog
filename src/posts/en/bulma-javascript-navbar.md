@@ -11,7 +11,7 @@ In the case we want to use the navbar component, we would expect that if we clic
 
 The behavior we want to achieve looks something like this:
 
-![Navbar menu expands after the user clicks on hamburger button](/public/images/blog/bulma-javascript-navbar/navbar-example.jpg "Navbar menu expands after the user clicks on hamburger button")
+![Navbar menu expands after the user clicks on hamburger button](/images/blog/bulma-javascript-navbar/navbar-example.jpg "Navbar menu expands after the user clicks on hamburger button")
 
 The idea is simple: what controls this state on the navbar is a single class called `is-active` that has to be present on both the `navbar-burger` and the `navbar-menu` element.
 

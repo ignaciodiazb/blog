@@ -22,7 +22,7 @@ varExample();
 
 When we call this function, it prints `Apple` to the console as the result of a scanning the engine performs before executing the code, where it is looking for all variable declarations to allocate the corresponding memory to start working on the next phase . So, by the time the engine gets to the initialization at runtime, the value of `Apple` will be assigned to the variable, whose declaration has been "moved" to the top of the function.
 
-![Variable declaration and initialization in JavaScript](/public/images/blog/javascript-variable-hoisting/declaration_and_initialization.png "Variable declaration and initialization in JavaScript")
+![Variable declaration and initialization in JavaScript](/images/blog/javascript-variable-hoisting/declaration_and_initialization.png "Variable declaration and initialization in JavaScript")
 
 It's important to note that in JavaScript only **variable declarations** are hoisted. If we tried to access the value of the `fruit` variable before it's initialized, it have would printed `undefined`, which is the default value `var` variables get assigned when hoisted in the creation phase.
 

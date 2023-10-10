@@ -11,7 +11,7 @@ En este caso queremos usar el componente navbar (barra de navegación), del cual
 
 La interacción que queremos lograr luce así:
 
-![El menú del navbar se expande luego de que el usuario hace click en el botón de hamburguesa](/public/images/blog/bulma-javascript-navbar/navbar-example.jpg "El menú del navbar se expande luego de que el usuario hace click en el botón de hamburguesa")
+![El menú del navbar se expande luego de que el usuario hace click en el botón de hamburguesa](/images/blog/bulma-javascript-navbar/navbar-example.jpg "El menú del navbar se expande luego de que el usuario hace click en el botón de hamburguesa")
 
 La idea es simple: lo que controla este estado en el componente es una clase llamada `is-active` que tiene que estar presente en los elementos con las clases `navbar-burger` y `navbar-menu`.
 
