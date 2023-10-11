@@ -8,8 +8,8 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
-export default function BlogPage({ params: { lang } }: { params: { lang: Locale } }) {
-  const posts = getPostsMetadata(lang);
+export default async function BlogPage({ params: { lang } }: { params: { lang: Locale } }) {
+  const posts = await getPostsMetadata(lang);
 
   return (
     <Fragment>

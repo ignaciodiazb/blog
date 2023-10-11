@@ -8,11 +8,7 @@ import { Locale, i18n } from "../../i18n-config";
 
 interface BlogPost {
   contentHtml: string;
-  date: string;
-  intro: string;
-  readingTime: number;
-  slug: string;
-  title: string;
+  meta: BlogPostMetadata;
 }
 interface BlogPostMetadata {
   date: string;
@@ -39,30 +35,29 @@ export async function getPostBySlug(slug: string, lang: Locale = "en"): Promise<
 
   return {
     contentHtml,
-    slug,
-    ...(data as { date: string; intro: string; readingTime: number; title: string }),
+    meta: { slug, ...(data as { date: string; intro: string; readingTime: number; title: string }) },
   };
 }
 
-export function getPostsMetadata(lang: Locale = "en"): BlogPostMetadata[] {
+export async function getPostsMetadata(
+  lang: Locale = "en",
+  limit: number | undefined = undefined,
+): Promise<BlogPostMetadata[]> {
   const postsDirectoryWithLocale = path.join(postsDirectory, lang);
   const fileNames = fs.readdirSync(postsDirectoryWithLocale);
 
-  const allPostsData = fileNames.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, "");
+  const allPostsData: BlogPostMetadata[] = [];
 
-    const fullPath = path.join(postsDirectoryWithLocale, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+  for (const file of fileNames) {
+    const slug = file.replace(/\.md$/, "");
+    const post = await getPostBySlug(slug, lang);
+    if (post) {
+      const { meta } = post;
+      allPostsData.push(meta);
+    }
+  }
 
-    const { data } = matter(fileContents);
-
-    return {
-      slug,
-      ...(data as { date: string; intro: string; readingTime: number; title: string }),
-    };
-  });
-
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, limit);
 }
 
 export function getPostsParams(): BlogPostParams[] {

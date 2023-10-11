@@ -7,7 +7,7 @@ import { getPostsMetadata } from "@/lib/posts";
 
 export default async function LatestPosts({ lang }: { lang: Locale }) {
   const dictionary = await getDictionary(lang);
-  const posts = getPostsMetadata(lang);
+  const posts = await getPostsMetadata(lang, 3);
 
   return (
     <section className={"my-8"}>
