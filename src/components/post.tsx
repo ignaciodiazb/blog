@@ -1,9 +1,12 @@
 import Link from "next/link";
 
+import Date from "./date";
+import type { Locale } from "../../i18n-config";
+
 interface Props {
   date: string;
   intro: string;
-  lang: string;
+  lang: Locale;
   readingTime: number;
   slug: string;
   title: string;
@@ -18,7 +21,7 @@ export default function Post({ date, intro, lang, slug, readingTime, title }: Pr
         </Link>
       </h3>
       <p className={"text-xs text-slate-600"}>
-        <time dateTime={date}>{date}</time> &middot; {readingTime} min read
+        <Date dateString={date} lang={lang} /> &middot; {readingTime} min read
       </p>
       <p className={""}>{intro}</p>
     </article>
