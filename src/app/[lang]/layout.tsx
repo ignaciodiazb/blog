@@ -47,9 +47,9 @@ export default async function RootLayout({
                 {/* <li className={"px-2"}>
                   <Link href={`/${lang}/projects`}>{dictionary.navigation.projects}</Link>
                 </li> */}
-                {/* <li className={"px-2"}>
+                <li className={"px-2"}>
                   <Link href={`/${lang}/contact`}>{dictionary.navigation.contact}</Link>
-                </li> */}
+                </li>
                 <li className={"px-2"}>
                   <LocaleSwitcher lang={lang} />
                 </li>
