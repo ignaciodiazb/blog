@@ -7,12 +7,23 @@ import { useRef } from "react";
 import SubmitButton from "./submit-button";
 import { createContact } from "@/actions/contact";
 
+interface FormActions {
+  reset: string;
+  submit: string;
+}
+
+interface FormLabels {
+  email: string;
+  message: string;
+  name: string;
+}
+
 const initialState = {
   message: null,
   success: null,
 };
 
-export default function ContactForm() {
+export default function ContactForm({ actions, labels }: { actions: FormActions; labels: FormLabels }) {
   const [state, formAction] = useFormState(createContact, initialState);
   const ref = useRef<HTMLFormElement>(null);
 
@@ -25,7 +36,7 @@ export default function ContactForm() {
       ref={ref}>
       <div className={"mb-6"}>
         <label className={"text-sm font-medium text-gray-900"} htmlFor={"name"}>
-          Name
+          {labels.name}
         </label>
         <input
           className={"bg-gray-50 border border-gray-300 text-sm text-gray-900 rounded-md block w-full p-2.5"}
@@ -38,7 +49,7 @@ export default function ContactForm() {
       </div>
       <div className={"mb-6"}>
         <label className={"text-sm font-medium text-gray-900"} htmlFor={"email"}>
-          Email
+          {labels.email}
         </label>
         <input
           className={"bg-gray-50 border border-gray-300 text-sm text-gray-900 rounded-md block w-full p-2.5"}
@@ -51,7 +62,7 @@ export default function ContactForm() {
       </div>
       <div className={"mb-6"}>
         <label className={"text-sm font-medium text-gray-900"} htmlFor={"message"}>
-          Message
+          {labels.message}
         </label>
         <textarea
           className={"bg-gray-50 border border-gray-300 text-sm text-gray-900 rounded-md block w-full p-2.5"}
@@ -62,7 +73,7 @@ export default function ContactForm() {
           rows={5}
         />
       </div>
-      <SubmitButton />
+      <SubmitButton text={actions.submit} />
       <button
         className={
           "text-black bg-white hover:bg-slate-50 border font-medium rounded-lg text-sm px-5 py-2.5 text-center"
@@ -70,7 +81,7 @@ export default function ContactForm() {
         onClick={() => {
           ref.current?.reset();
         }}>
-        Reset
+        {actions.reset}
       </button>
       <p aria-live={"polite"} className={"mt-3"}>
         {state?.message}

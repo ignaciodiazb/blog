@@ -15,6 +15,21 @@
       },
       "title": "Sobre mi"
     },
+    "contact": {
+      "description": "Por favor llene el siguiente formulario para ponerse en contacto.",
+      "form": {
+        "actions": {
+          "reset": "Limpiar",
+          "submit": "Enviar"
+        },
+        "fields": {
+          "email": "Correo electrónico",
+          "message": "Mensaje",
+          "name": "Nombre"
+        }
+      },
+      "title": "Contacto"
+    },
     "home": {
       "intro": {
         "description": {
