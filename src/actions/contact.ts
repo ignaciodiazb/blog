@@ -7,6 +7,7 @@ import Contact from "@/models/contact";
 import ContactConfirmation from "@/email/contact-confirmation";
 import dbConnect from "@/lib/dbConnect";
 
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL;
 const DEFAULT_EMAIL = process.env.DEFAULT_EMAIL;
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -32,7 +33,7 @@ export async function createContact(prevState: any, formData: FormData) {
 
     await resend.emails.send({
       bcc: DEFAULT_EMAIL,
-      from: `Ignacio Díaz <${DEFAULT_EMAIL}>`,
+      from: `Ignacio Díaz <${CONTACT_EMAIL}>`,
       react: ContactConfirmation({ email: data.email, message: data.message, name: data.name }),
       subject: "Contact confirmation",
       to: data.email,
