@@ -1,9 +1,15 @@
 "use server";
 
+import { Resend } from "resend";
 import { z } from "zod";
 
 import Contact from "@/models/contact";
+import ContactConfirmation from "@/email/contact-confirmation";
 import dbConnect from "@/lib/dbConnect";
+
+const DEFAULT_EMAIL = process.env.DEFAULT_EMAIL;
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function createContact(prevState: any, formData: FormData) {
   await dbConnect();
@@ -23,6 +29,15 @@ export async function createContact(prevState: any, formData: FormData) {
   try {
     const contact = new Contact(Object.assign(data, { _createdDate: new Date() }));
     await contact.save();
+
+    await resend.emails.send({
+      bcc: DEFAULT_EMAIL,
+      from: `Ignacio Díaz <${DEFAULT_EMAIL}>`,
+      react: ContactConfirmation({ email: data.email, message: data.message, name: data.name }),
+      subject: "Contact confirmation",
+      to: data.email,
+    });
+
     return { message: "Message sent successfully", success: true };
   } catch (err) {
     return { message: "Failed to send message", success: false };
