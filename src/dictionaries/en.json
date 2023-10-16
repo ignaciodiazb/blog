@@ -15,6 +15,21 @@
       },
       "title": "About"
     },
+    "contact": {
+      "description": "Please fill out the form below to get in touch.",
+      "form": {
+        "actions": {
+          "reset": "Reset",
+          "submit": "Submit"
+        },
+        "fields": {
+          "email": "Email",
+          "message": "Message",
+          "name": "Name"
+        }
+      },
+      "title": "Contact"
+    },
     "home": {
       "intro": {
         "description": {
