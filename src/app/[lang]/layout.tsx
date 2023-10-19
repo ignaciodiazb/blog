@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 import LocaleSwitcher from "@/components/locale-switcher";
 import Providers from "./providers";
+import ThemeSwitcher from "@/components/theme-switcher";
 import { Locale, i18n } from "../../../i18n-config";
 import { getDictionary } from "@/lib/dictionary";
 
@@ -54,6 +55,9 @@ export default async function RootLayout({
                   </li>
                   <li className={"px-2"}>
                     <LocaleSwitcher lang={lang} />
+                  </li>
+                  <li className={"px-2"}>
+                    <ThemeSwitcher />
                   </li>
                 </ul>
               </nav>
