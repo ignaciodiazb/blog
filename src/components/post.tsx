@@ -20,7 +20,7 @@ export default function Post({ date, intro, lang, slug, readingTime, title }: Pr
           {title}
         </Link>
       </h3>
-      <p className={"text-xs text-slate-600"}>
+      <p className={"text-xs text-slate-600 dark:text-slate-400"}>
         <Date dateString={date} lang={lang} /> &middot; {readingTime} min read
       </p>
       <p className={""}>{intro}</p>

@@ -14,7 +14,7 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: L
   return (
     <Fragment>
       <h2 className={"text-3xl font-medium"}>Blog</h2>
-      <ul className={"my-3 divide-y divide-slate-200"} role={"list"}>
+      <ul className={"my-3 divide-y divide-slate-200 dark:divide-slate-600"} role={"list"}>
         {posts.map((post) => (
           <li className={"py-4 first:pt-0 last:pb-0"} key={post.slug}>
             <Post

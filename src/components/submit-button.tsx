@@ -8,7 +8,9 @@ export default function SubmitButton({ text }: { text: string }) {
   return (
     <button
       aria-disabled={pending}
-      className={"text-white bg-black hover:bg-slate-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-3 text-center"}
+      className={
+        "text-white bg-black hover:bg-slate-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-3 text-center dark:outline dark:outline-1 dark:outline-slate-300"
+      }
       type={"submit"}>
       {text}
     </button>
