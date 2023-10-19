@@ -1,4 +1,10 @@
 {
+  "footer": {
+    "theme": {
+      "darkMode": "Dark mode",
+      "lightMode": "Light mode"
+    }
+  },
   "navigation": {
     "about": "About",
     "blog": "Blog",

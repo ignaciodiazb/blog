@@ -71,7 +71,7 @@ export default async function RootLayout({
               </Link>
             </div>
             <div className={"flex justify-center items-center mt-3"}>
-              <ThemeSwitcher />
+              <ThemeSwitcher themeLabels={dictionary.footer.theme} />
             </div>
           </footer>
         </Providers>
