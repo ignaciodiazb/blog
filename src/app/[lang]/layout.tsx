@@ -32,7 +32,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
-      <body className={inter.className}>
+      <body className={`${inter.className} dark:bg-slate-800`}>
         <Providers>
           <header className={"py-5"}>
             <div className={"max-w-3xl mx-auto flex flex-col md:flex-row md:justify-between items-center"}>
@@ -70,7 +70,7 @@ export default async function RootLayout({
                 LinkedIn
               </Link>
             </div>
-            <div className={"flex justify-center items-center mt-2"}>
+            <div className={"flex justify-center items-center mt-3"}>
               <ThemeSwitcher />
             </div>
           </footer>

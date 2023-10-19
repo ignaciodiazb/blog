@@ -12,7 +12,7 @@ export default async function LatestPosts({ lang }: { lang: Locale }) {
   return (
     <section className={"my-8"}>
       <h2 className={"text-xl font-medium"}>{dictionary.page.home.latestPosts.title}</h2>
-      <ul className={"my-3 divide-y divide-slate-200"} role={"list"}>
+      <ul className={"my-3 divide-y divide-slate-200 dark:divide-slate-600"} role={"list"}>
         {posts.map((post) => (
           <li className={"py-4 first:pt-0 last:pb-0"} key={post.slug}>
             <Post

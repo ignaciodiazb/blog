@@ -35,7 +35,7 @@ export default function ContactForm({ actions, labels }: { actions: FormActions;
       }}
       ref={ref}>
       <div className={"mb-6"}>
-        <label className={"text-sm font-medium text-gray-900"} htmlFor={"name"}>
+        <label className={"text-sm font-medium text-gray-900 dark:text-slate-300"} htmlFor={"name"}>
           {labels.name}
         </label>
         <input
@@ -48,7 +48,7 @@ export default function ContactForm({ actions, labels }: { actions: FormActions;
         />
       </div>
       <div className={"mb-6"}>
-        <label className={"text-sm font-medium text-gray-900"} htmlFor={"email"}>
+        <label className={"text-sm font-medium text-gray-900 dark:text-slate-300"} htmlFor={"email"}>
           {labels.email}
         </label>
         <input
@@ -61,7 +61,7 @@ export default function ContactForm({ actions, labels }: { actions: FormActions;
         />
       </div>
       <div className={"mb-6"}>
-        <label className={"text-sm font-medium text-gray-900"} htmlFor={"message"}>
+        <label className={"text-sm font-medium text-gray-900 dark:text-slate-300"} htmlFor={"message"}>
           {labels.message}
         </label>
         <textarea
