@@ -19,7 +19,7 @@ export default function ThemeSwitcher() {
   return (
     <Fragment>
       <span
-        className={"text-xs hover:cursor-pointer"}
+        className={"underline hover:cursor-pointer"}
         onClick={() => {
           setTheme(theme === "light" ? "dark" : "light");
         }}>

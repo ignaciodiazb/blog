@@ -56,21 +56,23 @@ export default async function RootLayout({
                   <li className={"px-2"}>
                     <LocaleSwitcher lang={lang} />
                   </li>
-                  <li className={"px-2"}>
-                    <ThemeSwitcher />
-                  </li>
                 </ul>
               </nav>
             </div>
           </header>
           <main className={"max-w-3xl mx-auto px-3 md:px-0 py-5"}>{children}</main>
-          <footer className={"flex justify-center items-center py-3"}>
-            <Link className={"px-2 underline"} href={"https://github.com/ignaciodiazb"} target={"_blank"}>
-              GitHub
-            </Link>
-            <Link className={"px-2 underline"} href={"https://www.linkedin.com/in/ignaciodiazb/"} target={"_blank"}>
-              LinkedIn
-            </Link>
+          <footer className={"py-3"}>
+            <div className={"flex justify-center items-center"}>
+              <Link className={"px-2 underline"} href={"https://github.com/ignaciodiazb"} target={"_blank"}>
+                GitHub
+              </Link>
+              <Link className={"px-2 underline"} href={"https://www.linkedin.com/in/ignaciodiazb/"} target={"_blank"}>
+                LinkedIn
+              </Link>
+            </div>
+            <div className={"flex justify-center items-center mt-2"}>
+              <ThemeSwitcher />
+            </div>
           </footer>
         </Providers>
       </body>
