@@ -31,7 +31,7 @@ export default async function RootLayout({
   const dictionary = await getDictionary(lang);
 
   return (
-    <html lang={lang}>
+    <html lang={lang} suppressHydrationWarning>
       <body className={`${inter.className} dark:bg-slate-800`}>
         <Providers>
           <header className={"py-5"}>
