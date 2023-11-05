@@ -4,7 +4,7 @@ import { Fragment, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 export default function ThemeSwitcher({ themeLabels }: { themeLabels: { darkMode: string; lightMode: string } }) {
-  const { setTheme, theme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   const [mounted, setMounted] = useState(false);
 
@@ -21,9 +21,9 @@ export default function ThemeSwitcher({ themeLabels }: { themeLabels: { darkMode
       <span
         className={"underline hover:cursor-pointer"}
         onClick={() => {
-          setTheme(theme === "light" ? "dark" : "light");
+          setTheme(resolvedTheme === "dark" ? "light" : "dark");
         }}>
-        {theme === "light" ? themeLabels.darkMode : themeLabels.lightMode}
+        {resolvedTheme === "dark" ? themeLabels.lightMode : themeLabels.darkMode}
       </span>
     </Fragment>
   );
