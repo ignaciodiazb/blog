@@ -40,7 +40,7 @@ export default async function RootLayout({
                 <Link href={`/${lang}`}>Ignacio Díaz</Link>
               </h1>
               <nav className={"mt-3 md:mt-0"}>
-                <ul className={"flex justify-center"}>
+                <ul className={"flex justify-center items-center"}>
                   <li className={"px-2"}>
                     <Link href={`/${lang}/blog`}>{dictionary.navigation.blog}</Link>
                   </li>
@@ -56,6 +56,9 @@ export default async function RootLayout({
                   <li className={"px-2"}>
                     <LocaleSwitcher lang={lang} />
                   </li>
+                  <li className={"px-2"}>
+                    <ThemeSwitcher themeLabels={dictionary.footer.theme} />
+                  </li>
                 </ul>
               </nav>
             </div>
@@ -69,9 +72,6 @@ export default async function RootLayout({
               <Link className={"px-2 underline"} href={"https://www.linkedin.com/in/ignaciodiazb/"} target={"_blank"}>
                 LinkedIn
               </Link>
-            </div>
-            <div className={"flex justify-center items-center mt-3"}>
-              <ThemeSwitcher themeLabels={dictionary.footer.theme} />
             </div>
           </footer>
         </Providers>
