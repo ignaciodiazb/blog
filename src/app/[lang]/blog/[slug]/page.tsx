@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 
+import Date from "@/components/date";
 import { Locale } from "../../../../../i18n-config";
 import { getPostBySlug, getPostsParams } from "@/lib/posts";
 
@@ -31,7 +32,7 @@ export default async function BlogPostPage({ params: { lang, slug } }: Props) {
     <article className={"py-4"}>
       <h1 className={"text-2xl font-bold lg:text-3xl my-3"}>{meta.title}</h1>
       <p className={"text-sm mb-3 text-slate-600 dark:text-slate-400"}>
-        <time dateTime={meta.date}>{meta.date}</time> &middot; {meta.readingTime} min read
+        <Date dateString={meta.date} lang={lang} /> &middot; {meta.readingTime} min read
       </p>
       <div
         className={"prose prose-stone lg:prose-lg mt-3 mb-10 dark:prose-invert"}
